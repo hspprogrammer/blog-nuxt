@@ -33,7 +33,7 @@ export default defineAppConfig({
   "menus": [
     {
       "name": "首页",
-      "url": "/"
+      "url": "/article"
     },
     {
       "name": "项目",

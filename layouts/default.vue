@@ -6,7 +6,7 @@
           <div class="flex flex-row items-center">
             <img class =" h-9.5 ml-6 mr-6" alt="logo" src="https://cdn.hanshanpeng.com/images/%E6%9C%AA%E5%91%BD%E5%90%8D%E9%A1%B9%E7%9B%AE-%E5%9B%BE%E5%B1%82%201%20%281%29.jpeg"/>
             <ul class="flex flex-row">
-              <li v-for="item in appConfig.menus" :key="item.url" :class="'px-3 h-14 leading-14 cursor-pointer'+(route.path===item.url?' nav-link-active':' nav-link')">
+              <li v-for="item in appConfig.menus" :key="item.url" :class="'px-3 h-14 leading-14 cursor-pointer'+(route.path.startsWith(item.url)?' nav-link-active':' nav-link')">
                 <a :href="item.url" class="w-full h-full inline-block">{{item.name}}</a>
               </li>
             </ul>
@@ -45,7 +45,6 @@ import { ref,computed } from 'vue';
 
 const route = useRoute()
 const appConfig = useAppConfig()
-
 const query = ref('')
 
 const { data } = useAsyncData('search', () => queryCollectionSearchSections('article'))
