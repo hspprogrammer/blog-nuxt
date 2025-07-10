@@ -6,6 +6,8 @@
     "build": "nuxt build",
     "static": "nuxt build --prerender",
     "start": "nuxt start",
+    "stop":"pm2 stop blog-nuxt || true",
+    "pm2":"pm2 start .output/server/index.mjs --name blog-nuxt --interpreter node",
     "clean": "nuxt cleanup"
   },
   "author": "",
