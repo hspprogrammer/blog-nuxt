@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+html{
+      font-size: 16px;
+}
+
+body{
+    --juejin-brand-5-light: #eaf2ff;
+    --juejin-font-2: #515767;
+    --juejin-font-3: #8a919f;
+    --juejin-gray-2: #f2f3f5;
+    --juejin-background: #f2f3f5;
+    min-height: 100vh;
+    background-color: var(--juejin-background);
+}
+
+@layer utilities {
+  .content-auto {
+    content-visibility: auto;
+  }
+  /* 顶部header */
+  .nav-link {
+    @apply relative transition-colors;
+  }
+  .nav-link:hover::after {
+    @apply absolute font-bold bottom-0 left-0 content-[''] w-full h-0.5 bg-[var(--ui-color-primary-500)];
+  }
+  .nav-link-active {
+    @apply relative text-[var(--ui-color-primary-500)];
+  }
+  .nav-link-active:hover::after {
+    @apply absolute bottom-0 left-0 content-[''] w-full h-0.5 bg-[var(--ui-color-primary-500)];
+  }
+  /* 侧边category */
+  .category-item {
+    @apply relative rounded-md;
+  }
+  .category-item:hover {
+    @apply text-[var(--ui-color-primary-500)] bg-[#f7f8fa];
+  }
+  .category-item-active {
+    @apply text-[var(--ui-color-primary-500)] bg-[var(--juejin-brand-5-light)];
+  }
+  /* 排序 */
+  .sort-item:hover {
+    @apply text-[var(--ui-color-primary-500)] cursor-pointer;
+  }
+  .sort-item-active {
+    @apply text-[var(--ui-color-primary-500)] relative;
+  }
+  .sort-item-active::after {
+    @apply absolute -bottom-4 left-1/3 content-[''] w-1/3 h-0.5 bg-[var(--ui-color-primary-500)];
+  }
+  /* 文章列表tag */
+   .post-tag-item {
+    @apply px-1.5 max-w-[65px] bg-[var(--juejin-gray-2)] text-[var(--juejin-font-3)] ml-1.5 text-[12px] whitespace-nowrap overflow-hidden text-ellipsis leading-4.5;
+  }
+  /* 动态的图片展示 */
+  .dynamic-img-item{
+    @apply mr-3 mb-3 w-54 h-54 rounded-xs cursor-pointer object-cover;
+  }
+  .dynamic-img-item:nth-child(1):nth-last-child(3),
+  .dynamic-img-item:nth-child(2):nth-last-child(2),
+   .dynamic-img-item:nth-child(3):nth-last-child(1),
+   .dynamic-img-item:nth-child(1):nth-last-child(n + 5),
+   .dynamic-img-item:nth-child(1):nth-last-child(n + 5)~.dynamic-img-item{
+    @apply w-37 h-37;
+  }
+ .dynamic-img-item:nth-child(1):nth-last-child(2),
+  .dynamic-img-item:nth-child(2):nth-last-child(1),
+ .dynamic-img-item:nth-child(1):nth-last-child(4),
+  .dynamic-img-item:nth-child(2):nth-last-child(3),
+  .dynamic-img-item:nth-child(3):nth-last-child(2),
+  .dynamic-img-item:nth-child(4):nth-last-child(1) {
+      @apply w-54 h-54;
+  }
+/* 项目 */
+  .project-item:nth-child(3n + 2) {
+    @apply mx-3;
+  }
+
+}
